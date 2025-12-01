@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
 from .config import MODEL_NAME
 from .tools import (
-    edamam_search_tool, meal_planner_tool,
+    nutrition_search_tool, meal_planner_tool,
     calculate_macros_tool, compare_tool
 )
 
@@ -11,8 +11,8 @@ from .tools import (
 nutrition_search_agent = Agent(
     name="search_agent",
     model=MODEL_NAME,
-    instruction="Use edamam_search to find foods.",
-    tools=[edamam_search_tool],
+    instruction="Use search_food to find nutritional information for foods.",
+    tools=[nutrition_search_tool],
     output_key="foods"
 )
 
