@@ -1,3 +1,15 @@
+# ui/app.py (top of file) - paste exactly
+import sys, pathlib
+
+# --- Ensure project root is on sys.path so 'backend' and 'ui' import work ---
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+# Now import using absolute package paths
+from backend.runner import ask_backend
+from ui.components import food_card
+
 import streamlit as st
 import asyncio
 import json
