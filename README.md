@@ -19,22 +19,22 @@ nutri_concierge/
 └── README.md
 ```
 
-# Create Virtual Environment
+## Create Virtual Environment
 python -m venv venv
 
-# Activate (Windows PowerShell)
+## Activate (Windows PowerShell)
 .\venv\Scripts\Activate.ps1
 
-# Or macOS / Linux
+## Or macOS / Linux
 source venv/bin/activate
 
-# Install Dependencies
+## Install Dependencies
 pip install -r requirements.txt
 
-# Create .env file with:
+## Create .env file with:
 ### GOOGLE_API_KEY=...
 ### EDAMAM_APP_ID=...
 ### EDAMAM_APP_KEY=...
 
-# run app
+## Run the app
 streamlit run ui/app.py
