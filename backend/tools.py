@@ -1,6 +1,6 @@
 import json
 from google.adk.tools.function_tool import FunctionTool
-from .edamam import edamam_search_food
+from .nutrition_api import search_food  # Changed import
 
 # -----------------------------
 # MACRO CALCULATOR
@@ -36,14 +36,16 @@ def compare_foods(f1, f2) -> str:
 # MEAL PLANNER TOOL
 # -----------------------------
 def meal_planner(goal: str) -> str:
-    data = json.loads(edamam_search_food(goal))
+    # Updated to use search_food instead of edamam_search_food
+    data = json.loads(search_food(goal))
     foods = data.get("foods", [])[:3]
     return json.dumps({"goal": goal, "meal": foods}, indent=2)
 
 # -----------------------------
-# ADK TOOL WRAPPERS (NO KWARGS)
+# ADK TOOL WRAPPERS
 # -----------------------------
-edamam_search_tool   = FunctionTool(edamam_search_food)
+# Renamed tool for clarity
+nutrition_search_tool = FunctionTool(search_food)
 calculate_macros_tool = FunctionTool(calculate_macros)
 compare_tool          = FunctionTool(compare_foods)
 meal_planner_tool     = FunctionTool(meal_planner)
